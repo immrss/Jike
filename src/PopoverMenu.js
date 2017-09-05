@@ -5,7 +5,7 @@ let screenW = Dimensions.get('screen').width;
 let screenH = Dimensions.get('screen').height;
 let margin = 2;
 let contentW = screenW - 2*margin;
-let contentH = contentW * 0.2;
+let contentH = contentW * 0.5;
 
 export default class PopoverMenu extends PureComponent {
 

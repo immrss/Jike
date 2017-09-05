@@ -22,8 +22,8 @@
 
   //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
   
-  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"react" withExtension:@"bundle"];
-  //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+  //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"react" withExtension:@"bundle"];
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"JikeApp"
