@@ -1,0 +1,56 @@
+{
+	"success": true,
+	"data": {
+		"searchSuggestionWords": {
+			"topic": [{
+				"word": "福彩中心主任被双开",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E7%A6%8F%E5%BD%A9%E4%B8%AD%E5%BF%83%E4%B8%BB%E4%BB%BB%E8%A2%AB%E5%8F%8C%E5%BC%80"
+			}, {
+				"word": "七夕",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E4%B8%83%E5%A4%95"
+			}, {
+				"word": "薛之谦怒揭黑幕",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E8%96%9B%E4%B9%8B%E8%B0%A6%E6%80%92%E6%8F%AD%E9%BB%91%E5%B9%95"
+			}, {
+				"word": "皱兆龙出轨",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E7%9A%B1%E5%85%86%E9%BE%99%E5%87%BA%E8%BD%A8"
+			}, {
+				"word": "梅威瑟VS麦格雷戈",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E6%A2%85%E5%A8%81%E7%91%9FVS%E9%BA%A6%E6%A0%BC%E9%9B%B7%E6%88%88"
+			}, {
+				"word": "成都车展",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E6%88%90%E9%83%BD%E8%BD%A6%E5%B1%95"
+			}, {
+				"word": "暗访海底捞",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E6%9A%97%E8%AE%BF%E6%B5%B7%E5%BA%95%E6%8D%9E"
+			}, {
+				"word": "中国有嘻哈",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=message&keywords=%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%98%BB%E5%93%88"
+			}, {
+				"word": "河神",
+				"type": "fixed",
+				"link": "jike://page.jk/search?type=integrated&keywords=%E6%B2%B3%E7%A5%9E"
+			}, {
+				"word": "上海",
+				"type": "random",
+				"link": "jike://page.jk/search?type=integrated&keywords=%E4%B8%8A%E6%B5%B7"
+			}, {
+				"word": "中国",
+				"type": "random",
+				"link": "jike://page.jk/search?type=integrated&keywords=%E4%B8%AD%E5%9B%BD"
+			}, {
+				"word": "教程",
+				"type": "random",
+				"link": "jike://page.jk/search?type=integrated&keywords=%E6%95%99%E7%A8%8B"
+			}]
+		}
+	}
+}
