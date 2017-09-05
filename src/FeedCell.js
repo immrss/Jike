@@ -9,12 +9,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Dimensions 
+  Dimensions,
+  PixelRatio
 } from 'react-native'
 import FeedImageComponent from './FeedImageComponent';
 import Video from 'react-native-video';
 import ImageButton from './ImageButton';
 import {feedCellImage} from './Resource';
+
+let pixelRatio = PixelRatio.get();
 
 export default class FeedCell extends PureComponent {
   constructor() {
@@ -58,7 +61,7 @@ export default class FeedCell extends PureComponent {
               <FeedImageComponent
                 style={{marginTop: 10}}
                 images={data.pictureUrls.map((item)=>item.thumbnailUrl)}
-                onPress={(index)=>this.props.imagePress(index)}
+                onPress={(index)=>this.props.imagePress(data,index)}
               />
             ) : null
           }
@@ -77,8 +80,8 @@ export default class FeedCell extends PureComponent {
             ) : null
           }
           <View style={styles.footer}>
-            <ImageButton title={data.likeCount.toString()} image={feedCellImage.like} onPress={()=>this.props.commentPress()}/>
-            <ImageButton style={{marginLeft:30}} title={data.commentCount.toString()} image={feedCellImage.comment} onPress={()=>this.props.commentPress()}/>
+            <ImageButton title={data.likeCount.toString()} image={feedCellImage.like} onPress={()=>this.props.likePress(data)}/>
+            <ImageButton style={{marginLeft:30}} title={data.commentCount.toString()} image={feedCellImage.comment} onPress={()=>this.props.commentPress(data)}/>
             <ImageButton style={{marginLeft:30}} image={feedCellImage.repost}/>
             <ImageButton style={styles.share} image={feedCellImage.share}/>
           </View>
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
     height: 26,
   },
   footer: {
-    borderTopWidth: 1,
+    borderTopWidth: 1/pixelRatio,
     borderTopColor: '#dbdadc',
     marginTop: 10,
     flexDirection: 'row',

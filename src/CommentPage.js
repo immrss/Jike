@@ -1,7 +1,12 @@
 import React, { PureComponent } from 'react'
-import { View,Text,SectionList,TouchableOpacity,StyleSheet,Alert } from 'react-native'
+import { View,Text,SectionList,TouchableOpacity,StyleSheet,
+  Alert,
+  PixelRatio
+} from 'react-native'
 import CommentCell from './CommentCell';
 import FeedCell from './FeedCell';
+
+let pixelRatio = PixelRatio.get();
 
 export default class CommentPage extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -36,7 +41,7 @@ export default class CommentPage extends PureComponent {
   }
 
   renderSeparator() {
-    return <View style={{height:1,backgroundColor:'#dbdadc'}}></View>
+    return <View style={{height:1/pixelRatio,backgroundColor:'#dbdadc'}}></View>
   }
 
   render() {
@@ -75,6 +80,6 @@ const styles = StyleSheet.create({
     height:52,
     backgroundColor:'#f0f3f5',
     borderBottomColor:'#dbdadc',
-    borderBottomWidth:1
+    borderBottomWidth:1/pixelRatio
   }
 })
