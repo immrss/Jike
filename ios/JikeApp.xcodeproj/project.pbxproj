@@ -36,9 +36,6 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		CF3BC14058F442BCABFBD545 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B8DF2C5E6427B86D8F2F8 /* libRCTVideo.a */; };
 		F44EB47F1F5C43B600E8FCDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		F44EB4E81F5DC37200E8FCDA /* react.bundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = F44EB4C71F5DC37100E8FCDA /* react.bundle.meta */; };
-		F44EB4E91F5DC37200E8FCDA /* react.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F44EB4C81F5DC37100E8FCDA /* react.bundle */; };
-		F44EB4EB1F5DC37800E8FCDA /* assets in Resources */ = {isa = PBXBuildFile; fileRef = F44EB4EA1F5DC37700E8FCDA /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,9 +298,6 @@
 		708B8DF2C5E6427B86D8F2F8 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		F44EB4C71F5DC37100E8FCDA /* react.bundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = react.bundle.meta; sourceTree = "<group>"; };
-		F44EB4C81F5DC37100E8FCDA /* react.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = react.bundle; sourceTree = "<group>"; };
-		F44EB4EA1F5DC37700E8FCDA /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,9 +433,6 @@
 		13B07FAE1A68108700A75B9A /* JikeApp */ = {
 			isa = PBXGroup;
 			children = (
-				F44EB4EA1F5DC37700E8FCDA /* assets */,
-				F44EB4C81F5DC37100E8FCDA /* react.bundle */,
-				F44EB4C71F5DC37100E8FCDA /* react.bundle.meta */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -963,11 +954,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44EB4EB1F5DC37800E8FCDA /* assets in Resources */,
-				F44EB4E81F5DC37200E8FCDA /* react.bundle.meta in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				F44EB4E91F5DC37200E8FCDA /* react.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
