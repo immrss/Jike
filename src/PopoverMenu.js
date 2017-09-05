@@ -11,7 +11,7 @@ export default class PopoverMenu extends PureComponent {
 
   constructor() {
     super();
-    this.contentScale = new Animated.Value(0.85);
+    this.contentScale = new Animated.Value(0.8);
     this.state = {
       visible: false,
       items: [],
@@ -29,12 +29,12 @@ export default class PopoverMenu extends PureComponent {
       position: position,
       items: items
     });
-    this.contentScale.setValue(0.85);
+    this.contentScale.setValue(0.8);
     Animated.spring(
       this.contentScale,
       {
         toValue: 1,
-        friction: 4
+        friction: 3.5
       }
     ).start();
   }

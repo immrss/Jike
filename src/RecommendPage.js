@@ -102,6 +102,14 @@ export default class RecommendPage extends PureComponent {
 
   }
 
+  _itemReposeAction = (item)=>{
+
+  }
+
+  _itemShareAction = (item)=>{
+
+  }
+
   _renderCell = (itemData)=>{
     let {item} = itemData;
     return (
@@ -113,6 +121,8 @@ export default class RecommendPage extends PureComponent {
         commentPress={this._itemCommentAction}
         videoPress={this._itemVideoAction}
         arrowPress={this._itemArrowAction}
+        sharePress={this._itemShareAction}
+        repostPress={this._itemReposeAction}
       />
     )
   }

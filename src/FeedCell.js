@@ -18,6 +18,7 @@ import ImageButton from './ImageButton';
 import {feedCellImage} from './Resource';
 
 let pixelRatio = PixelRatio.get();
+let contentW = Dimensions.get('screen').width-20;
 
 export default class FeedCell extends PureComponent {
   constructor() {
@@ -42,17 +43,17 @@ export default class FeedCell extends PureComponent {
                 <Text style={{fontSize:14,color:'#1eaaf1'}}>{topic.content}</Text>
               </TouchableOpacity>
               <Text style={{fontSize: 13}}>{date.toLocaleString()}</Text>
-              <TouchableOpacity
-                style={styles.arrow}
-                onPress={(event)=>{
-                  if (this.props.arrowPress) {
-                    this.props.arrowPress(data,{x:event.nativeEvent.pageX,y:event.nativeEvent.pageY});
-                  }
-                }}
-              >
-                <Image source={feedCellImage.arrow} style={{width:12,height:7}}/>
-              </TouchableOpacity>
             </View>
+            <TouchableOpacity
+              style={styles.arrow}
+              onPress={(event)=>{
+                if (this.props.arrowPress) {
+                  this.props.arrowPress(data,{x:event.nativeEvent.pageX,y:event.nativeEvent.pageY});
+                }
+              }}
+            >
+              <Image source={feedCellImage.arrow} style={{width:12,height:7}}/>
+            </TouchableOpacity>
           </View>
           <Text style={styles.content}>{data.content}</Text>
           {
@@ -60,7 +61,7 @@ export default class FeedCell extends PureComponent {
             (
               <FeedImageComponent
                 style={{marginTop: 10}}
-                images={data.pictureUrls.map((item)=>item.thumbnailUrl)}
+                images={data.pictureUrls}
                 onPress={(index)=>this.props.imagePress(data,index)}
               />
             ) : null
@@ -80,10 +81,26 @@ export default class FeedCell extends PureComponent {
             ) : null
           }
           <View style={styles.footer}>
-            <ImageButton title={data.likeCount.toString()} image={feedCellImage.like} onPress={()=>this.props.likePress(data)}/>
-            <ImageButton style={{marginLeft:30}} title={data.commentCount.toString()} image={feedCellImage.comment} onPress={()=>this.props.commentPress(data)}/>
-            <ImageButton style={{marginLeft:30}} image={feedCellImage.repost}/>
-            <ImageButton style={styles.share} image={feedCellImage.share}/>
+            <ImageButton 
+              title={data.likeCount.toString()} 
+              image={feedCellImage.like} 
+              onPress={()=>this.props.likePress(data)}
+            />
+            <ImageButton 
+              style={{marginLeft:30}} 
+              title={data.commentCount.toString()} 
+              image={feedCellImage.comment} 
+              onPress={()=>this.props.commentPress(data)}/>
+            <ImageButton 
+              style={{marginLeft:30}} 
+              image={feedCellImage.repost}
+              onPress={()=>this.props.repostPress(data)}
+            />
+            <ImageButton 
+              style={styles.share} 
+              image={feedCellImage.share}
+              onPress={()=>this.props.sharePress(data)}
+            />
           </View>
         </View>
       </View>
@@ -109,7 +126,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   topRight: {
-    flex:1,
     justifyContent: 'space-between',
     paddingLeft: 10
   },
@@ -134,7 +150,7 @@ const styles = StyleSheet.create({
   },
   video: {
     marginTop: 10,
-    height: 240
+    height: contentW*0.6
   },
   videoThumb:{
     flex: 1
@@ -185,18 +201,18 @@ class FeedMusicComponent extends PureComponent {
           <Text style={{fontSize:14,color:'#807f81'}} numberOfLines={1}>{media.author}</Text>
         </View>
         <Video 
-          source={{uri:uri}} // Can be a URL or a local file.
-          rate={this.state.playing ? 1 : 0}                   // 0 is paused, 1 is normal.
-          volume={1.0}                 // 0 is muted, 1 is normal.
-          muted={false}                // Mutes the audio entirely.
-          paused={false}               // Pauses playback entirely.
-          resizeMode="cover"           // Fill the whole screen at aspect ratio.
-          repeat={false}                // Repeat forever.
-          onLoadStart={this.loadStart} // Callback when video starts to load
-          onLoad={this.setDuration}    // Callback when video loads
-          onProgress={this.setTime}    // Callback every ~250ms with currentTime
-          onEnd={this.onEnd}           // Callback when playback finishes
-          onError={this.videoError}    // Callback when video cannot be loaded
+          source={{uri:uri}}
+          rate={this.state.playing ? 1 : 0}
+          volume={1.0}
+          muted={false}
+          paused={false}
+          resizeMode="cover"
+          repeat={false}
+          onLoadStart={this.loadStart}
+          onLoad={this.setDuration}
+          onProgress={this.setTime}
+          onEnd={this.onEnd}
+          onError={this.videoError}
         />
       </View>
     );

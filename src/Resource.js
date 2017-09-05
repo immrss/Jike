@@ -7,7 +7,8 @@ var feedCellImage = {
   comment: require('./image/ic_messages_comment.png'),
   repost: require('./image/ic_messages_repost.png'),
   share: require('./image/ic_messages_share.png'),
-  playVideo: require('./image/ic_mediaplayer_videoplayer_play.png')
+  playVideo: require('./image/ic_mediaplayer_videoplayer_play.png'),
+  gif: require('./image/ic_messages_pictype_gif.png')
 };
 
 /**
@@ -19,7 +20,8 @@ var videoPageImage = {
   pause: require('./image/ic_mediaplayer_videoplayer_pause.png'),
   pip: require('./image/ic_navbar_pip.png'),
   replay: require('./image/ic_mediaplayer_videoplayer_replay.png'),
-  sliderThumb: require('./image/ic_mediaplayer_videoplayer_slider.png')
+  sliderThumb: require('./image/ic_mediaplayer_videoplayer_slider.png'),
+  expand: require('./image/ic_mediaplayer_videoplayer_expand.png')
 };
 
 export {

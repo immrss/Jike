@@ -170,7 +170,7 @@ export default class VideoPlayPage extends PureComponent {
           </Animated.View>
           <Animated.View style={[styles.bottomBar,{opacity:this.state.barOpacity}]}>
             <TouchableOpacity
-              style={{width:16,height:16}}
+              style={{width:20,height:20,paddingHorizontal:2,paddingVertical:2}}
               onPress={()=>this.setState({paused:!this.state.paused})}
             >
               <Image style={{flex:1}} source={playButtonImage} />
@@ -184,10 +184,10 @@ export default class VideoPlayPage extends PureComponent {
             />
             <Text style={{color: 'white',fontSize:12}}>{progressText}</Text>
             <TouchableOpacity
-              style={{width:16,height:16}}
+              style={{width:20,height:20,paddingHorizontal:2,paddingVertical:2}}
               onPress={()=>this.setState({rate:this.state.rate ? 0 : 1})}
             >
-              <Image style={{flex:1}} source={playButtonImage} />
+              <Image style={{flex:1}} source={videoPageImage.expand} />
             </TouchableOpacity>
           </Animated.View>
         </View>
