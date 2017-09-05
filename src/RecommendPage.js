@@ -87,7 +87,7 @@ export default class RecommendPage extends PureComponent {
   }
 
   _itemImageAction = (item,index)=>{
-
+    this.refs.imageBrowser.show(item.pictureUrls,index);
   }
   
   _itemVideoAction = (item)=>{
@@ -97,6 +97,11 @@ export default class RecommendPage extends PureComponent {
   _itemAvatarAction = (item)=>{
 
   }
+
+  _itemLikeAction = (item)=>{
+
+  }
+
   _renderCell = (itemData)=>{
     let {item} = itemData;
     return (
@@ -104,6 +109,7 @@ export default class RecommendPage extends PureComponent {
         data={item}
         avatarPress={this._itemAvatarAction}
         imagePress={this._itemImageAction}
+        likePress={this._itemLikeAction}
         commentPress={this._itemCommentAction}
         videoPress={this._itemVideoAction}
         arrowPress={this._itemArrowAction}
@@ -121,6 +127,7 @@ export default class RecommendPage extends PureComponent {
           renderItem={this._renderCell}
           onScroll={this.flatListOnScroll}
         />
+        <ImageBrowser ref='imageBrowser' />
         <PopoverMenu ref='moreMenu' />
       </View>
     )
