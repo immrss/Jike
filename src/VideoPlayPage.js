@@ -20,6 +20,7 @@ import { videoPageImage } from './Resource';
 let uri = 'http://sh.yinyuetai.com/uploads/videos/common/88DC015DB03C829C2126EEBBB5A887CB.mp4';
 
 let screeW = Dimensions.get('screen').width;
+let screeH = Dimensions.get('screen').height;
 
 function formatTime(seconds) {
   if (seconds == 0) {
@@ -59,7 +60,9 @@ export default class VideoPlayPage extends PureComponent {
       rate: 1,
       paused: false,
       finish: false,
-      barOpacity: new Animated.Value(1)
+      barOpacity: new Animated.Value(1),
+      expand: false,
+      rotate: new Animated.Value(0)
     }
   }
 
@@ -100,6 +103,14 @@ export default class VideoPlayPage extends PureComponent {
     let playButtonImage = this.state.paused ? videoPageImage.play : videoPageImage.pause;
     let progress = this.state.duration > 0 ? this.state.current/this.state.duration : 0;
     let progressText = formatTime(this.state.current) + '/' +formatTime(this.state.duration);
+    let width = this.state.expand ? screeH : screeW;
+    let height = this.state.expand ? screeW : screeH;
+    let transform = {
+      rotate: this.state.rotate.interpolate({
+        inputRange: [0,1],
+        outputRange: ['0deg','90deg']
+      })
+    };
     return (
       <TouchableWithoutFeedback 
         onPress={()=>{
@@ -112,7 +123,7 @@ export default class VideoPlayPage extends PureComponent {
           this.barStateAnimation();
         }}
       >
-        <View style={styles.container}>
+        <Animated.View style={[styles.container,{width:width,height:height},{transform:[transform]}]}>
           <Video 
             style={styles.video} 
             ref='player'
@@ -185,12 +196,23 @@ export default class VideoPlayPage extends PureComponent {
             <Text style={{color: 'white',fontSize:12}}>{progressText}</Text>
             <TouchableOpacity
               style={{width:20,height:20,paddingHorizontal:2,paddingVertical:2}}
-              onPress={()=>this.setState({rate:this.state.rate ? 0 : 1})}
+              onPress={()=>{
+                this.setState({expand: !this.state.expand})
+                let to = this.state.expand ? 1 : 0;
+                Animated.timing(
+                  this.state.rotate,
+                  {
+                    toValue: 1,
+                    duration: 250,
+                    easing: Easing.linear
+                  }
+                ).start();
+              }}
             >
               <Image style={{flex:1}} source={videoPageImage.expand} />
             </TouchableOpacity>
           </Animated.View>
-        </View>
+        </Animated.View>
       </TouchableWithoutFeedback>
     )
   }
@@ -199,8 +221,10 @@ export default class VideoPlayPage extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
-    flex: 1,
     justifyContent: 'space-between',
+    position: 'absolute',
+    left: 0,
+    top: 0
   },
   topBar: {
     height: 64,
